@@ -1,14 +1,14 @@
 <?php
 $miArreglo = explode("/", $_SERVER['REQUEST_URI']);
 
-if(count(array_filter($miArreglo))<3){
+if(count(array_filter($miArreglo))<1){
     $json = array(
         "ruta:"=>"La ruta no ha sido encontrada, favor validar"
     );
     echo json_encode($json,true);
     return;
 }else{
-    $endPoint = array_filter($miArreglo)[3];
+    $endPoint = array_filter($miArreglo)[1];
     $metodo = $_SERVER['REQUEST_METHOD'];  
     
     (array)$data = json_decode(file_get_contents('php://input'),true);
